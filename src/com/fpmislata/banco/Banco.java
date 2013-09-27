@@ -28,13 +28,13 @@ public class Banco {
          BigDecimal bigDecimal1 = new BigDecimal("4500.00");
          BigDecimal bigDecimal2 = new BigDecimal("6750.00");
          
-         //Declaracion de BigDecimal para movimientos bancarios de la cuenta: cuent1
+         //Declaracion de BigDecimal para movimientos bancarios de la cuenta: cuentaBancaria1
          BigDecimal bigDecimal3 = new BigDecimal("300.00");
          BigDecimal bigDecimal4 = new BigDecimal("4200.00");
          BigDecimal bigDecimal5 = new BigDecimal("400.00");
          BigDecimal bigDecimal6 = new BigDecimal("4900.00");
          
-         //Declaracion de BigDecimal para movimientos bancarios de la cuenta: cuent2
+         //Declaracion de BigDecimal para movimientos bancarios de la cuenta: cuentaBancaria2
          BigDecimal bigDecimal7 = new BigDecimal("600.00");
          BigDecimal bigDecimal8 = new BigDecimal("6150.00");
          BigDecimal bigDecimal9 = new BigDecimal("1000.00");
