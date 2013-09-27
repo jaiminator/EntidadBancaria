@@ -13,14 +13,17 @@ import java.util.Date;
  */
 public class MovimientoBancario {
     private int idMovimientoBancario;
+    private CuentaBancaria cuentaBancaria;
     private TipoMovimientoBancario tipoMovimientoBancario;
     private BigDecimal importe;
     private Date fecha;
     private BigDecimal saldoTotal;
     private String concepto;
+    
 
-    public MovimientoBancario(int idMovimiento, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Date fecha, BigDecimal saldoTotal, String concepto) {
+    public MovimientoBancario(int idMovimiento, CuentaBancaria cuentaBancaria, TipoMovimientoBancario tipoMovimientoBancario, BigDecimal importe, Date fecha, BigDecimal saldoTotal, String concepto) {
         this.idMovimientoBancario = idMovimiento;
+        this.cuentaBancaria = cuentaBancaria;
         this.tipoMovimientoBancario = tipoMovimientoBancario;
         this.importe = importe;
         this.fecha = fecha;
@@ -34,6 +37,22 @@ public class MovimientoBancario {
 
     public void setIdMovimiento(int idMovimiento) {
         this.idMovimientoBancario = idMovimiento;
+    }
+
+    public int getIdMovimientoBancario() {
+        return idMovimientoBancario;
+    }
+
+    public void setIdMovimientoBancario(int idMovimientoBancario) {
+        this.idMovimientoBancario = idMovimientoBancario;
+    }
+
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
     }
 
     public TipoMovimientoBancario getTipoMovimientoBancario() {
