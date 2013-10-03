@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fpmislata.banco;
+package com.fpmislata.entidadBancaria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +12,15 @@ import java.util.List;
  * @author alumno
  */
 public class EntidadBancaria {
-    private int idEntidad;
+    private int idEntidadBancaria;
     private String codigoEntidad;
     private String nombre;
     private String cif;
     private TipoEntidadBancaria tipoEntidadBancaria;
     private List <SucursalBancaria> listaSucusales = new ArrayList<>();
 
-    public EntidadBancaria(int idEntidad, String codigoEntidad, String nombre, String cif, TipoEntidadBancaria tipoEntidad) {
-        this.idEntidad = idEntidad;
+    public EntidadBancaria(int idEntidadBancaria, String codigoEntidad, String nombre, String cif, TipoEntidadBancaria tipoEntidad) {
+        this.idEntidadBancaria = idEntidadBancaria;
         this.codigoEntidad = codigoEntidad;
         this.nombre = nombre;
         this.cif = cif;
@@ -36,11 +36,11 @@ public class EntidadBancaria {
     }
 
     public int getIdEntidad() {
-        return idEntidad;
+        return idEntidadBancaria;
     }
 
-    public void setIdEntidad(int idEntidad) {
-        this.idEntidad = idEntidad;
+    public void setIdEntidad(int idEntidadBancaria) {
+        this.idEntidadBancaria = idEntidadBancaria;
     }
 
     public String getCodigoEntidad() {
