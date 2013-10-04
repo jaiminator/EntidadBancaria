@@ -4,6 +4,8 @@
  */
 package com.fpmislata.entidadBancaria;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -18,9 +20,13 @@ public class Banco {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
-        EntidadBancariaDAO entidadBancariaDAO = null;
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = null;
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco","banco", "banco");
         
-        entidadBancariaDAO.read(1);
+        EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
+        
+        entidadBancariaDAO.read(2);
     }
 }

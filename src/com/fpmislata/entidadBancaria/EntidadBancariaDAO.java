@@ -19,7 +19,7 @@ public class EntidadBancariaDAO {
     
     Connection connection = null;
     
-    public  EntidadBancariaDAO () throws ClassNotFoundException, SQLException {
+    public  EntidadBancariaDAO() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco","banco", "banco");
     }
@@ -27,33 +27,21 @@ public class EntidadBancariaDAO {
     
     
     public EntidadBancaria read (int idEntidadBancaria) throws SQLException {
-        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = ?";
+        
+        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = " + idEntidadBancaria;
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
         
         preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet resultSet = preparedStatement.executeQuery();
         
-        while (resultSet.next()) {
-            
             String idEntidadBancaria1 = resultSet.getString("idEntidadBancaria");
-                String codigoEntidad = resultSet.getString("codigoEntidad");
-                String nombre = resultSet.getString("nombre");
-                String cif = resultSet.getString("cif");
-                
-            if (idEntidadBancaria == resultSet.getInt("idEntidadBancaria")) {
+            String codigoEntidad = resultSet.getString("codigoEntidad");
+            String nombre = resultSet.getString("nombre");
+            String cif = resultSet.getString("cif");
             
-                System.out.println("ID " + " CodigoEntidad " + " Nombre " + " CIF");
-                System.out.println(idEntidadBancaria + "    " + codigoEntidad + "  " + nombre + "   " + cif);
+            EntidadBancaria entidadBancaria = new EntidadBancaria(idEntidadBancaria, codigoEntidad, nombre, cif, TipoEntidadBancaria.valueOf(nombre));
             
-            } else {
-                return null;
-            }
-                     
-            
-        }
-        
-        
-        return null;
+            return entidadBancaria;
     }
     
     public void insert (EntidadBancaria entidadBancaria) throws SQLException {
@@ -61,31 +49,37 @@ public class EntidadBancariaDAO {
                    + "(idEntidadBancaria, codigoEntidad, nombre, cif, tipoEntidadBancaria)"
                    + "VALUES (?,?,?,?,?)";
         
-        PreparedStatement preparedStatement2 = connection.prepareStatement(insertEntidadSQL);
-        preparedStatement2.setInt(1, 2);
-        preparedStatement2.setString(2, "002");
-        preparedStatement2.setString(3, "Bankia");
-        preparedStatement2.setString(4, "002");
-        preparedStatement2.setString(5, "AHORROS");
+        PreparedStatement preparedStatement = connection.prepareStatement(insertEntidadSQL);
+        preparedStatement.setInt(1, entidadBancaria.getIdEntidad());
+        preparedStatement.setString(2, entidadBancaria.getCodigoEntidad());
+        preparedStatement.setString(3, entidadBancaria.getNombre());
+        preparedStatement.setString(4, entidadBancaria.getCif());
+        preparedStatement.setString(5, entidadBancaria.getTipoEntidad().name());
         
         //ejecuta el INSERT
-        preparedStatement2.executeUpdate();
+        preparedStatement.executeUpdate();
     }
     
     public void update (EntidadBancaria entidadBancaria) throws SQLException {
         String updateEntidadSQL = "UPDATE entidadBancaria SET nombre = ? WHERE idEntidadBancaria = ?";
         
-        PreparedStatement preparedStatement3 = connection.prepareStatement(updateEntidadSQL);
-        preparedStatement3.setString(1, "Santander");
-        preparedStatement3.setInt(2, 2);
+        PreparedStatement preparedStatement = connection.prepareStatement(updateEntidadSQL);
+        preparedStatement.setString(1, entidadBancaria.getNombre());
+        preparedStatement.setInt(2, entidadBancaria.getIdEntidad());
         
         //actualizamos dicha tabla
-        preparedStatement3.executeUpdate();
+        preparedStatement.executeUpdate();
         
     }
     
-    public void delete (int idEntidadBancaria) {
+    public void delete (int idEntidadBancaria) throws SQLException {
+        String deleteTableSQL = "DELETE FROM entidadBancaria WHERE idEntidadBancaria = ?";
         
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteTableSQL);
+        preparedStatement.setInt(1, 2);
+        
+        //borramos dicha tabla
+        preparedStatement.executeUpdate();
     }
     
     public List <EntidadBancaria> findAll() {
