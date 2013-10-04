@@ -64,8 +64,9 @@ public class EntidadBancariaDAO {
         String updateEntidadSQL = "UPDATE entidadBancaria SET nombre = ? WHERE idEntidadBancaria = ?";
         
         PreparedStatement preparedStatement = connection.prepareStatement(updateEntidadSQL);
-        preparedStatement.setString(1, entidadBancaria.getNombre());
         preparedStatement.setInt(2, entidadBancaria.getIdEntidad());
+        preparedStatement.setString(1, entidadBancaria.getNombre());
+        
         
         //actualizamos dicha tabla
         preparedStatement.executeUpdate();

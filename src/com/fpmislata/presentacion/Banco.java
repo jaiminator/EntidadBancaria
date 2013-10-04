@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fpmislata.entidadBancaria;
+package com.fpmislata.presentacion;
 
+import com.fpmislata.entidadBancaria.EntidadBancariaDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
