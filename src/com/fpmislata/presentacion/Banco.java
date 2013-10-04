@@ -26,8 +26,10 @@ public class Banco {
         Connection connection = null;
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco","banco", "banco");
         
+        System.out.println("Se ha conectado a la base de datos");
+        
         EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
         
-        entidadBancariaDAO.read(2);
+        entidadBancariaDAO.read(1);
     }
 }
