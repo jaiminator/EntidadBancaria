@@ -28,11 +28,11 @@ public class EntidadBancariaDAO {
     
     public EntidadBancaria read (int idEntidadBancaria) throws SQLException {
         
-        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = " + idEntidadBancaria;
+        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
         
-        preparedStatement.setInt(1, idEntidadBancaria);
-        ResultSet resultSet = preparedStatement.executeQuery();
+        preparedStatement.setInt(1, 2);
+        ResultSet resultSet = preparedStatement.executeQuery(selectSQL);
         
             String idEntidadBancaria1 = resultSet.getString("idEntidadBancaria");
             String codigoEntidad = resultSet.getString("codigoEntidad");
@@ -47,7 +47,7 @@ public class EntidadBancariaDAO {
     public void insert (EntidadBancaria entidadBancaria) throws SQLException {
         String insertEntidadSQL = "INSERT INTO entidadBancaria" 
                    + "(idEntidadBancaria, codigoEntidad, nombre, cif, tipoEntidadBancaria)"
-                   + "VALUES (?,?,?,?,?)";
+                   + "VALUES (?, ?, ?, ?, ?)";
         
         PreparedStatement preparedStatement = connection.prepareStatement(insertEntidadSQL);
         preparedStatement.setInt(1, entidadBancaria.getIdEntidad());
@@ -57,7 +57,7 @@ public class EntidadBancariaDAO {
         preparedStatement.setString(5, entidadBancaria.getTipoEntidad().name());
         
         //ejecuta el INSERT
-        preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate(insertEntidadSQL);
     }
     
     public void update (EntidadBancaria entidadBancaria) throws SQLException {
