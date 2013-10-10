@@ -30,12 +30,7 @@ public class Banco {
         System.out.println("Se ha conectado a la base de datos");
         
         EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
-        EntidadBancaria entidadBancaria = new EntidadBancaria(4, "2002", "Santander", "003", TipoEntidadBancaria.COOPERATIVASCREDITO);
-        
-
-        entidadBancariaDAO.read(3);
-
-        entidadBancariaDAO.insert(entidadBancaria);
+ 
         entidadBancariaDAO.read(2);
         
 
