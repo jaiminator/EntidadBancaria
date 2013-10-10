@@ -92,6 +92,8 @@ public class EntidadBancariaDAO {
     }
     
     public List <EntidadBancaria> findAll() {
+        
+        
         return null;
     }
     
