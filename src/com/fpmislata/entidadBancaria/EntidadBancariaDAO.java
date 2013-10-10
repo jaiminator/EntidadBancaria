@@ -28,7 +28,7 @@ public class EntidadBancariaDAO {
     
     public EntidadBancaria read (int idEntidadBancaria) throws SQLException {
         
-        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = " + idEntidadBancaria;
+        String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = ? ";
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
         
         preparedStatement.setInt(1, idEntidadBancaria);
