@@ -30,6 +30,6 @@ public class Banco {
         
         EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
         
-        entidadBancariaDAO.read(1);
+        entidadBancariaDAO.read(3);
     }
 }

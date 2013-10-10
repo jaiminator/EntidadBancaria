@@ -30,18 +30,26 @@ public class EntidadBancariaDAO {
         
         String selectSQL = "SELECT * FROM entidadBancaria WHERE idEntidadBancaria = ? ";
         PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-        
+
         preparedStatement.setInt(1, idEntidadBancaria);
         ResultSet resultSet = preparedStatement.executeQuery();
         
+        EntidadBancaria entidadBancaria = new EntidadBancaria();
+            
+
+        while (resultSet.next()) {
+            
             String idEntidadBancaria1 = resultSet.getString("idEntidadBancaria");
             String codigoEntidad = resultSet.getString("codigoEntidad");
             String nombre = resultSet.getString("nombre");
             String cif = resultSet.getString("cif");
+            String tipoEntidadBancaria = resultSet.getString("tipoEntidadBancaria");
             
-            EntidadBancaria entidadBancaria = new EntidadBancaria(idEntidadBancaria, codigoEntidad, nombre, cif, TipoEntidadBancaria.valueOf(nombre));
-            
-            return entidadBancaria;
+            System.out.println("ID " + " CodigoEntidad " + " Nombre " + "     CIF " + " TipoEntidadBancaria");
+            System.out.println(idEntidadBancaria1 + "    " + codigoEntidad + "           " + nombre + "     " + cif + "         " + tipoEntidadBancaria);
+        } 
+           
+        return entidadBancaria;
     }
     
     public void insert (EntidadBancaria entidadBancaria) throws SQLException {
