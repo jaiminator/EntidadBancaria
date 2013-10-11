@@ -23,13 +23,13 @@ public class EntidadBancaria {
         
     }
 
-//    public EntidadBancaria(int idEntidadBancaria, String codigoEntidad, String nombre, String cif, TipoEntidadBancaria tipoEntidad) {
-//        this.idEntidadBancaria = idEntidadBancaria;
-//        this.codigoEntidad = codigoEntidad;
-//        this.nombre = nombre;
-//        this.cif = cif;
-//        this.tipoEntidadBancaria = tipoEntidad;
-//    }
+    public EntidadBancaria(int idEntidadBancaria, String codigoEntidad, String nombre, String cif, TipoEntidadBancaria tipoEntidad) {
+        this.idEntidadBancaria = idEntidadBancaria;
+        this.codigoEntidad = codigoEntidad;
+        this.nombre = nombre;
+        this.cif = cif;
+        this.tipoEntidadBancaria = tipoEntidad;
+    }
 
     public List<SucursalBancaria> getListaSucusales() {
         return listaSucusales;

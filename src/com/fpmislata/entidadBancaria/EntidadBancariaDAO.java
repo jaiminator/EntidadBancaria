@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -94,10 +95,29 @@ public class EntidadBancariaDAO {
         preparedStatement.executeUpdate();
     }
     
-    public List <EntidadBancaria> findAll() {
+    public List <EntidadBancaria> findAll() throws SQLException {
+        
+        List <EntidadBancaria> entidadesBancarias = new ArrayList<>();
+        
+        String selectSQL = "SELECT * FROM entidadBancaria";
+        
+        PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        
+        while (resultSet.next()) {
+            
+            String idEntidadBancaria1 = resultSet.getString("idEntidadBancaria");
+            String codigoEntidad = resultSet.getString("codigoEntidad");
+            String nombre = resultSet.getString("nombre");
+            String cif = resultSet.getString("cif");
+            String tipoEntidadBancaria = resultSet.getString("tipoEntidadBancaria");
+            
+            EntidadBancaria entidadBancaria = new EntidadBancaria(3, "003", "Santanter", "003", TipoEntidadBancaria.CAJAAHORROS);
+            entidadesBancarias.add(entidadBancaria);
+        } 
         
         
-        return null;
+        return entidadesBancarias;
     }
     
     public List <EntidadBancaria> findByCodigo (String codigo) {

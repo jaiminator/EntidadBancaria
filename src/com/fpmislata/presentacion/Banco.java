@@ -32,6 +32,9 @@ public class Banco {
         EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
  
         entidadBancariaDAO.read(2);
+        System.out.println("");
+        
+        entidadBancariaDAO.findAll();
         
 
     }
