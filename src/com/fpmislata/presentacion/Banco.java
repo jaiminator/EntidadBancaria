@@ -30,21 +30,26 @@ public class Banco {
         System.out.println("Se ha conectado a la base de datos");
         
         EntidadBancariaDAO entidadBancariaDAO = new EntidadBancariaDAO();
-        EntidadBancaria entidadBancaria = new EntidadBancaria(3, "003", "Santander", "003", TipoEntidadBancaria.BANCO);
+        EntidadBancaria entidadBancaria = new EntidadBancaria(2, "002", "Santander", "002", TipoEntidadBancaria.BANCO);
         
-        entidadBancariaDAO.read(1);
-        System.out.println("ID " + " CodigoEntidad " + " Nombre " + "     CIF " + " TipoEntidadBancaria");
-        System.out.println(entidadBancaria.getIdEntidad() + "    " + entidadBancaria.getCodigoEntidad() + "           " + entidadBancaria.getNombre() + "   " + entidadBancaria.getCif() + "        " + entidadBancaria.getTipoEntidad());
+//        entidadBancariaDAO.read(1);
+//        
+//        System.out.println("ID " + " CodigoEntidad " + " Nombre " + "     CIF " + " TipoEntidadBancaria");
+//        System.out.println(entidadBancaria.getIdEntidad() + "    " + entidadBancaria.getCodigoEntidad() + "           " + entidadBancaria.getNombre() + "   " + entidadBancaria.getCif() + "        " + entidadBancaria.getTipoEntidad());
+        
+        
         
 //        entidadBancariaDAO.insert(entidadBancaria);
         
-//        entidadBancariaDAO.delete(3);
+//        entidadBancariaDAO.update(entidadBancaria);
         
-//        entidadBancariaDAO.findAll();
+//        entidadBancariaDAO.delete(4);
+        
+        entidadBancariaDAO.findAll();
+        
+     
         
         
         
-        
-
     }
 }

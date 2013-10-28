@@ -85,7 +85,7 @@ public class EntidadBancariaDAO {
         String deleteTableSQL = "DELETE FROM entidadBancaria WHERE idEntidadBancaria = ?";
         
         PreparedStatement preparedStatement = connection.prepareStatement(deleteTableSQL);
-        preparedStatement.setInt(1, 3);
+        preparedStatement.setInt(1, 2);
         
         //borramos dicha tabla
         preparedStatement.executeUpdate();
